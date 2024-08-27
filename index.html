@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/9d7d7f6592.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <!-- search barr and menu + logo -->
+      <p id="label">Weather OK</p>
+      <button class="button-search" id="search_icon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+
+      <div class="search" id="search_box">
+        <input
+          type="text"
+          class="input-add"
+          id="address"
+          placeholder="Another Location"
+        />
+        <button class="button-search" id="search_button">Search</button>
+      </div>
+    </header>
+    <article class="w-background">
+      <article class="glass">
+        <section class="temperature">
+          <div>
+            <p>NOW</p>
+            <div class="temp-deg">
+              <h1>33</h1>
+              <div>
+                <p>Place</p>
+                <p>Condition</p>
+              </div>
+              <div>
+                <!-- wind, humidity, how temp feels like, pressure sunrise and sunset (costant). visbility -->
+                <ul>
+                  <p>
+                    wind, humidity, how temp feels like, pressure sunrise and
+                    sunset (costant). visbility
+                  </p>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- temperatures through out the day -->
+          <div>
+            <div class="temp-cards">
+              <ul class="temp-s-cards">
+                <li>4 AM</li>
+                <li><img />icon</li>
+                <li>45 deg</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="weather-days"></section>
+      </article>
+    </article>
+    <script type="module" src="./module/weather_data.js"></script>
+    <script type="module" src="./module/data.js"></script>
+    <script type="module" src="./module/functionality.js"></script>
+    <script type="module" src="./module/getData.js"></script>
+  </body>
+</html>
