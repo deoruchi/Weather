@@ -2,7 +2,22 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
+
+/* styles.css */
+
+:root {
+  --primary-color: #007bff; /* Blue */
+  --secondary-color: #66cd8e; /* Light Sea Green */
+  --tertiary-color: #4682b4; /* Steel Blue */
+  --accent-color: #ffffff; /* White */
+}
+
+body {
+  /* make a glass :: so need this bg empty */
+}
+
 header {
   display: grid;
   grid-template-rows: 50px;
@@ -11,6 +26,9 @@ header {
   align-items: center;
   font-size: large;
   padding: 5px;
+  color: var(--accent-color);
+  background-color: var(--primary-color);
+  backdrop-filter: blur(5px);
 }
 /* add animation */
 header .toggle {
@@ -23,17 +41,19 @@ header .toggle {
   padding: 0;
 }
 .button-search {
-  background-color: orangered;
+  background-color: var(--secondary-color);
   border: none;
   padding: 5px;
   font-size: 15px;
   border-radius: 10px;
+  color: rgba(0, 0, 0, 0.699);
 }
 .input-add {
   border: none;
   border-bottom: 2px solid;
-
+  border-radius: 5px;
   width: 100px;
+  background-color: rgba(247, 255, 252, 0.74);
 }
 .input-add:focus {
   outline: none;
