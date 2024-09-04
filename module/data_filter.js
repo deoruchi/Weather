@@ -1,7 +1,3 @@
-let data = localStorage.getItem("data");
-const data_c = JSON.parse(data);
-let today_temp = [];
-
 //filters the data w.r.t to date
 function filterData(arr, date_time_data) {
   let newarr = arr.filter((item) => {
@@ -14,8 +10,8 @@ function filterData(arr, date_time_data) {
   return newarr; //return array of object time and temp-details
 }
 
-//run once page loads
-(function () {
+function dataFilter(data_c) {
+  let today_temp = [];
   //get the data : time and date in iso
   const isoTimestamp = new Date().toISOString();
   let tm = isoTimestamp.split("T").shift();
@@ -36,12 +32,14 @@ function filterData(arr, date_time_data) {
   }
 
   // filter temp info w.r.t to dates
-  let whole_data = fiveDays.map((days) => {
+  let whole_data = [];
+  fiveDays.map((days) => {
     const day = days[0][0];
     today_temp = filterData(list_of_temperature, days);
-    return { day, today_temp };
+    whole_data.push({ day, today_temp });
   });
-  console.log("whole data", whole_data);
-})();
+  // console.log("whole data", whole_data);
+  return whole_data;
+}
 
-export { whole_data };
+export { dataFilter };
