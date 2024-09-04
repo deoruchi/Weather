@@ -3,73 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
     <script
       src="https://kit.fontawesome.com/9d7d7f6592.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./mainStyle.css" />
+
+    <title>Weather OK</title>
   </head>
-  <body>
-    <header>
-      <!-- search barr and menu + logo -->
-      <p id="label">Weather OK</p>
-      <button class="button-search" id="search_icon">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
+  <header>
+    <!-- search barr and menu + logo -->
+    <p id="label">Weather OK</p>
+    <button class="button-search" id="search_icon">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
 
-      <div class="search" id="search_box">
-        <input
-          type="text"
-          class="input-add"
-          id="address"
-          placeholder="Another Location"
-        />
-        <button class="button-search" id="search_button">Search</button>
+    <div class="search" id="search_box">
+      <input
+        type="text"
+        class="input-add"
+        id="address"
+        placeholder="Another Location"
+      />
+      <button class="button-search" id="search_button">Search</button>
+    </div>
+  </header>
+  <body class="main-container">
+    <!-- main content -->
+    <main class="temp-container">
+      <div class="flex ownflex">
+        <h3 class="place-time background-style" id="time">Show time</h3>
+        <h3 class="place-time background-style" id="curr-place">place-name</h3>
       </div>
-    </header>
-    <article class="w-background">
-      <article class="glass">
-        <section class="temperature">
-          <div>
-            <p>NOW</p>
-            <div class="temp-deg">
-              <h1>33</h1>
-              <div>
-                <p>Place</p>
-                <p>Condition</p>
-              </div>
-              <div>
-                <!-- wind, humidity, how temp feels like, pressure sunrise and sunset (costant). visbility -->
-                <ul>
-                  <p>
-                    wind, humidity, how temp feels like, pressure sunrise and
-                    sunset (costant). visbility
-                  </p>
-                </ul>
-              </div>
-            </div>
+      <article class="background-style info-main-container">
+        <section class="temp-info-container">
+          <!-- feels like another div1 -->
+          <div class="flex">
+            <!-- image src must be updated from the js
+               src="https://openweathermap.org/img/wn/10d@2x.png" 
+            -->
+            <img
+              alt="current weather icon"
+              class="icon-image image-shadow"
+              id="main-w-icon"
+            />
+            <h1 id="main-temp"></h1>
           </div>
-
-          <!-- temperatures through out the day -->
+          <!-- feels like another div2 -->
           <div>
-            <div class="temp-cards">
-              <ul class="temp-s-cards">
-                <li>4 AM</li>
-                <li><img />icon</li>
-                <li>45 deg</li>
-              </ul>
-            </div>
+            <p class="info" id="cloud-status">
+              Cloud status: <span id="cloud-stat"></span>
+            </p>
+            <p class="info">Feels like: <span id="feel-like"></span></p>
+          </div>
+          <!-- feels like another div3 -->
+          <div>
+            <p class="info">Sunset: <span id="sunset"></span></p>
+            <p class="info">Sun rise: <span id="sunrise"></span></p>
           </div>
         </section>
-        <section class="weather-days"></section>
+        <section>
+          <!-- some more info  -->
+          <div class="analytic-container flex" id="weather-detail">
+            <!-- target using js -->
+            <!-- <div class="mini-detail mini-data-card">
+              <p class="mini-title">title</p>
+              <div class="analytic-data">
+                <span>data</span>
+              </div>
+            </div> -->
+          </div>
+        </section>
       </article>
-    </article>
-    <script type="module" src="./module/weather_data.js"></script>
-    <script type="module" src="./module/data.js"></script>
+
+      <br />
+      <section class="hour-weather background-style" id="mini-card-container">
+        <h2 class="font-style" style="text-align: center">Tri-Hourly Time</h2>
+        <div class="flex" id="hour-mini-card">
+          <!-- <div class="h-card">
+            <img id="h-image image-shadow" />
+            <p id="h-temp">Temp</p>
+          </div> -->
+        </div>
+      </section>
+      <!-- 5day forcast section -->
+      <section class="forcast-container background-style">
+        <h2 class="font-style" style="text-align: center">5 Day Forcast</h2>
+        <div class="days-cards">
+          <!-- <div class="cards fixed-width add-width">
+            <div class="flex ownflex">
+              <p><span id="day">Today</span> <span id="date">date</span></p>
+            </div>
+            <div class="card-info">
+              <div class="flex flex2">
+                image src must be updated from the js 
+                <img
+                  src="https://openweathermap.org/img/wn/10d@2x.png"
+                  alt="current weather icon"
+                  class="icon-image"
+                  id="main-w-icon "
+                />
+                <div>
+                  <p id="max-temp">24&deg C</p>
+                  <p id="min-temp">24&deg C</p>
+                </div>
+              </div>
+              <span class="appear" id="weather-info-card"> weather info</span>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </main>
+    <!-- scripts -->
+    <script type="module" src="./module/weather_api.js"></script>
+    <script type="module" src="./module/data_filter.js"></script>
     <script type="module" src="./module/functionality.js"></script>
-    <script type="module" src="./module/getData.js"></script>
+    <script type="module" src="./module/loadData.js"></script>
+    <script type="module" src="./module/helperFuncs.js"></script>
   </body>
 </html>
