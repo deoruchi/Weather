@@ -11,6 +11,7 @@
 
 /* small-screen-view */
 .main-container {
+  color: var(--accent-color);
   background: url("./images/rainy-afternoon.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,6 +19,7 @@
 }
 .background-style {
   border-radius: 12px;
+  box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.247);
   backdrop-filter: blur(60px);
   background-color: rgba(255, 255, 255, 0.315);
 }
@@ -49,6 +51,10 @@
   grid-row: 100px;
   row-gap: 12px;
   justify-items: center;
+  padding: 10px;
+}
+#main-temp {
+  font-size: xx-large;
 }
 
 .mini-data-card {
@@ -60,6 +66,7 @@
   border-radius: 5px;
   box-shadow: #fbfafa3b 1px 1px 10px;
   gap: 10px;
+  margin: 5px;
 
   padding: 5px;
 }
@@ -79,6 +86,7 @@
   padding: 8px;
   background-color: var(--tertiary-color);
   color: var(--accent-color);
+  margin: 12px;
 }
 .card-info {
   display: grid;
@@ -114,6 +122,7 @@
     margin-inline-end: 12px;
     margin-inline-start: 12px;
     margin-bottom: 12px;
+    margin: 0.55%;
     transition: all ease-out 0.2s;
   }
 
