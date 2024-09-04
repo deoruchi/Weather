@@ -1,26 +1,5 @@
-// 9 is the length of the starting substring
-//eg : 292C+4CX Hazaribagh, Jharkhand, India
-// 292C+4CX --> length = 9
-
-// geoplace api1 : returns place name
-
-// async function getPlace(lat, lon) {
-//   try {
-//     const geocode_reverse = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${key}`;
-//     const result = await fetch(geocode_reverse);
-//     const data = await result.json();
-//     console.log(data);
-//     let str = data.plus_code.compound_code;
-//     let place_name = str.substring(9, str.length);
-//     return place_name;
-//   } catch (error) {
-//     console.error("Unable to fetch the data", error);
-//   }
-
-//   // sessionStorage.setItem("place", place_name);
-// }
 //geocoder api2 : returns weather and palce info
-const API_key = "f2f72fac7629af54e5160590ee52c0c6";
+import { API_key } from "../constants";
 async function getTheCordinates(place) {
   console.log(place);
 

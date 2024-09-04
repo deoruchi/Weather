@@ -36,7 +36,7 @@ function display(weather_info) {
   displayDaysCard(filtered_data);
 
   // Change background based on today's weather
-  // changeBackground(todayWeather);
+  changeBackground(todayWeather);
 }
 
 // Toggle button for search and search icon

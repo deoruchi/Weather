@@ -18,28 +18,28 @@ export function changeBackground(weatherInfo) {
   // Mapping of time and weather to background images
   const backgroundMapping = {
     morning: {
-      clear: "url('morning-clear.jpg')",
-      rain: "url('morning-rain.jpg')",
+      clear: "url('../images/morning-sunny.jpg')",
+      rain: "url('../images/rainy-morning.jpg')",
       clouds: "url('../images/morning-cloud.jpg')",
       snow: "url('../images/morning-snow.jpg')",
     },
     afternoon: {
       clear: "url('../images/afternoon-sunny.jpg')",
       rain: "url('../images/rainy-afternoon.jpg')",
-      clouds: "url('afternoon-clouds.jpg')",
-      snow: "url('afternoon-snow.jpg')",
+      clouds: "url('../images/morning-cloud.jpg')",
+      snow: "url('../images/cold-afternoon.jpg')",
     },
     evening: {
-      clear: "url('evening-clear.jpg')",
-      rain: "url('evening-rain.jpg')",
-      clouds: "url('evening-clouds.jpg')",
-      snow: "url('evening-snow.jpg')",
+      clear: "url('../images/clear-evening.jpg')",
+      rain: "url('../images/rainy-evening.jpg')",
+      clouds: "url('../images/cloud-evening.jpg')",
+      snow: "url(' ../images/cold-evening.jpg')",
     },
     night: {
       clear: "url('../images/winter-night.jpg')",
-      rain: "url('night-rain.jpg')",
-      clouds: "url('night-clouds.jpg')",
-      snow: "url('night-snow.jpg')",
+      rain: "url('../images/night.jpg')",
+      clouds: "url('../images/night.jpg')",
+      snow: "url('../images/winter-night.jpg')",
     },
   };
 
