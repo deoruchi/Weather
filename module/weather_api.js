@@ -1,8 +1,6 @@
 //geocoder api2 : returns weather and palce info
-import { API_key } from "../constants";
+const API_key = "f2f72fac7629af54e5160590ee52c0c6"
 async function getTheCordinates(place) {
-  console.log(place);
-
   const geocode = `http://api.openweathermap.org/geo/1.0/direct?q=${place},{state%20code}&limit=1&appid=${API_key}`;
 
   try {
