@@ -1,0 +1,167 @@
+:root {
+  --primary-color: #007bff; /* Blue */
+  --secondary-color: #66cd8e; /* Light Sea Green */
+  --tertiary-color: #4682b4; /* Steel Blue */
+  --accent-color: #ffffff; /* White */
+}
+
+.font-style {
+  font-weight: 500;
+}
+
+/* small-screen-view */
+.main-container {
+  background: url("./images/rainy-afternoon.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.background-style {
+  border-radius: 12px;
+  backdrop-filter: blur(60px);
+  background-color: rgba(255, 255, 255, 0.315);
+}
+.temp-container {
+  margin: 12px;
+  padding: 5.5px;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.place-time {
+  margin: 3px 0 3px 0;
+  padding: 5px;
+  border-radius: 12px;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
+.ownflex {
+  justify-content: space-between;
+}
+
+.temp-info-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: 100px;
+  row-gap: 12px;
+  justify-items: center;
+}
+
+.mini-data-card {
+  background-color: #4683b43c;
+  color: var(--accent-color);
+  width: 25%;
+  text-align: center;
+  padding: 2px;
+  border-radius: 5px;
+  box-shadow: #fbfafa3b 1px 1px 10px;
+  gap: 10px;
+
+  padding: 5px;
+}
+
+.hour-weather p {
+  margin: 15px;
+}
+
+.days-cards {
+  margin: 2px;
+  padding: 5px;
+}
+
+.cards {
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 8px;
+  background-color: var(--tertiary-color);
+  color: var(--accent-color);
+}
+.card-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  column-gap: 12px;
+}
+
+.card ul {
+  list-style: none;
+}
+.appear {
+  display: block;
+}
+.disappear {
+  display: none;
+}
+
+/* large-screen-view */
+@media (min-width: 768px) {
+  img {
+    width: 50%;
+  }
+  .temp-info-container {
+    display: grid;
+    grid-template-columns: 200px repeat(2, 1fr);
+    grid-template-rows: 100px;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .mini-data-card {
+    margin-inline-end: 12px;
+    margin-inline-start: 12px;
+    margin-bottom: 12px;
+    transition: all ease-out 0.2s;
+  }
+
+  .mini-data-card:hover {
+    background-color: #4683b48c;
+  }
+
+  #hour-mini-card {
+    justify-content: center;
+  }
+  .h-card {
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+    background-color: var(--secondary-color);
+  }
+
+  .forcast-container {
+    padding: 12px;
+  }
+  .days-cards {
+    padding: 5px;
+    margin: 12px;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    column-gap: 10px;
+    overflow-x: scroll;
+  }
+
+  .flex2 {
+    justify-content: start;
+  }
+  .cards {
+    padding: 10px;
+    background-color: var(--primary-color);
+    backdrop-filter: blur(120px);
+    transition: all ease-in 0.3s;
+    overflow-y: scrollS;
+  }
+  .cards:hover {
+    backdrop-filter: blur(120px);
+    background-color: var(--tertiary-color);
+  }
+  .fixed-width {
+    width: auto;
+  }
+
+  .disappear:nth-child(2):nth-child(n) {
+    /* background-color: #007bff48; */
+    display: none;
+  }
+}
