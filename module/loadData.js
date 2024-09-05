@@ -88,10 +88,9 @@ export function displayHourly(todayData) {
       hourMiniCards.innerHTML += `
       <div class="h-card backround-style">
       <p>${timeString}</p>
-      <div>
         <img class="h-image image-shadow" src=https://openweathermap.org/img/wn/${imageIcon}@2x.png />
         <p class="h-temp">${hTemp} \u00B0 C</p>
-      </div>
+     
       </div> 
     `;
     });
@@ -102,7 +101,6 @@ let date = new Date();
 
 export function displayDaysCard(data) {
   let cardHolder = document.getElementsByClassName("days-cards")[0];
-
   if (!data) {
     cardHolder.innerHTML += `
     <p> NO data Available </p>`;
@@ -144,12 +142,3 @@ export function displayDaysCard(data) {
     });
   }
 }
-// checkScreenSize();
-
-// idea : get a range of the
-// function getTimeIsoTimestamp(days) {
-//   const today = new Date();
-//   const futureDate = new Date(today.getTime() + days * 24 * 60 * 60 * 1000);
-//   return futureDate.toISOString();
-// }
-// getTimeIsoTimestamp(0);

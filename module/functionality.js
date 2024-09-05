@@ -50,6 +50,10 @@ search_button.addEventListener("click", async () => {
   searchIcon.classList.remove("disappear");
   let detailContainer = document.getElementById("weather-detail");
   detailContainer.innerHTML = "";
+  let hourMiniCards = document.getElementById("hour-mini-card");
+  hourMiniCards.innerHTML = "";
+  let cardHolder = document.getElementById("cards-d");
+  cardHolder.innerHTML = "";
   const place_name = document.getElementById("address");
   // let value = ;
   console.log(place_name.value);

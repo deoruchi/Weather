@@ -14,11 +14,9 @@
   --accent-color: #ffffff; /* White */
 }
 
-body {
-  /* make a glass :: so need this bg empty */
-}
-
 header {
+  position: relative;
+  top: -5px;
   display: grid;
   grid-template-rows: 50px;
   grid-template-columns: 150px 1fr;

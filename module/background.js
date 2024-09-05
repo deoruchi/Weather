@@ -18,33 +18,33 @@ export function changeBackground(weatherInfo) {
   // Mapping of time and weather to background images
   const backgroundMapping = {
     morning: {
-      clear: "url('../images/morning-sunny.jpg')",
-      rain: "url('../images/rainy-morning.jpg')",
-      clouds: "url('../images/morning-cloud.jpg')",
-      snow: "url('../images/morning-snow.jpg')",
+      clear: "url('./images/morning-sunny.jpg')",
+      rain: "url('./images/rainy-morning.jpg')",
+      clouds: "url('./images/morning-cloud.jpg')",
+      snow: "url('./images/morning-snow.jpg')",
     },
     afternoon: {
-      clear: "url('../images/afternoon-sunny.jpg')",
-      rain: "url('../images/rainy-afternoon.jpg')",
-      clouds: "url('../images/morning-cloud.jpg')",
-      snow: "url('../images/cold-afternoon.jpg')",
+      clear: "url('./images/afternoon-sunny.jpg')",
+      rain: "url('./images/rainy-afternoon.jpg')",
+      clouds: "url('./images/morning-cloud.jpg')",
+      snow: "url('./images/cold-afternoon.jpg')",
     },
     evening: {
-      clear: "url('../images/clear-evening.jpg')",
-      rain: "url('../images/rainy-evening.jpg')",
-      clouds: "url('../images/cloud-evening.jpg')",
-      snow: "url(' ../images/cold-evening.jpg')",
+      clear: "url('./images/clear-evening.jpg')",
+      rain: "url('./images/rainy-evening.jpg')",
+      clouds: "url('./images/cloud-evening.jpg')",
+      snow: "url('./images/cold-evening.jpg')",
     },
     night: {
-      clear: "url('../images/winter-night.jpg')",
-      rain: "url('../images/night.jpg')",
-      clouds: "url('../images/night.jpg')",
-      snow: "url('../images/winter-night.jpg')",
+      clear: "url('./images/winter-night.jpg')",
+      rain: "url('./images/night.jpg')",
+      clouds: "url('./images/night.jpg')",
+      snow: "url('./images/winter-night.jpg')",
     },
   };
 
   // Set default background in case of an unmapped condition
-  let backgroundImage = "url('../images/afternoon-sunny.jpg')";
+  let backgroundImage = "url('./images/afternoon-sunny.jpg')";
 
   // Get the appropriate background image
   if (

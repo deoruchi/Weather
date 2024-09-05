@@ -15,7 +15,9 @@
   background: url("./images/rainy-afternoon.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  overflow-x: hidden;
+  overflow-wrap: normal;
 }
 .background-style {
   border-radius: 12px;
@@ -67,12 +69,38 @@
   box-shadow: #fbfafa3b 1px 1px 10px;
   gap: 10px;
   margin: 5px;
-
   padding: 5px;
 }
 
+.hour-weather {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 12px;
+}
 .hour-weather p {
   margin: 15px;
+  text-align: center;
+}
+
+#hour-mini-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h-card {
+  border-radius: 12px;
+  backdrop-filter: blur(100px);
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 12px;
+}
+.h-card img {
+  width: 50px;
+  max-height: 75px;
 }
 
 .days-cards {
@@ -90,9 +118,15 @@
 }
 .card-info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: auto auto;
   align-items: center;
   column-gap: 12px;
+  height: 90px;
+}
+
+.flex2 div {
+  min-width: none;
+  width: 80%;
 }
 
 .card ul {
@@ -131,12 +165,13 @@
   }
 
   #hour-mini-card {
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
   .h-card {
-    border-radius: 12px;
-    backdrop-filter: blur(100px);
-    background-color: var(--secondary-color);
+    flex-direction: row;
+    margin: 5px;
+    height: 41px;
   }
 
   .forcast-container {
@@ -165,8 +200,17 @@
     backdrop-filter: blur(120px);
     background-color: var(--tertiary-color);
   }
-  .fixed-width {
-    width: auto;
+  .card-info {
+    grid-template-columns: 200px 100px;
+    height: auto;
+  }
+  .flex2 div {
+    min-width: 50%;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .card-info img {
+    width: 90%;
   }
 
   .disappear:nth-child(2):nth-child(n) {
