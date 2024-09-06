@@ -1,4 +1,0 @@
-https://fontawesome.com/icons/categories/weather
-https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
-For code 500 - light rain icon = "10d". See below a full list of codes
-URL is https://openweathermap.org/img/wn/10d@2x.png
