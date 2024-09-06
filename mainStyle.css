@@ -29,6 +29,7 @@
 .temp-container {
   margin: 12px;
   padding: 5.5px;
+  overflow-y: hidden;
 }
 .flex {
   display: flex;
@@ -36,6 +37,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .place-time {
   margin: 3px 0 3px 0;
   padding: 5px;
@@ -44,7 +46,7 @@
   margin-bottom: 8px;
 }
 .container {
-  max-width: 20%;
+  max-width: 20vh;
 }
 
 .ownflex {
@@ -63,6 +65,16 @@
   justify-items: center;
   padding: 10px;
 }
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.flex-container .info {
+  width: 30vw;
+}
+
 #main-temp {
   font-size: xx-large;
 }
@@ -96,9 +108,11 @@
   flex-direction: column;
   align-items: center;
 }
+
 .forcast-container {
   padding-top: 12px;
 }
+
 .h-card {
   border-radius: 12px;
   backdrop-filter: blur(100px);
@@ -111,6 +125,7 @@
   cursor: default;
   box-shadow: 1px 2px 10px rgba(19, 13, 13, 0.363);
 }
+
 .h-card img {
   width: 50px;
   max-height: 75px;
@@ -132,6 +147,7 @@
   cursor: default;
   box-shadow: 1px 2px 10px rgba(19, 13, 13, 0.363);
 }
+
 .card-info {
   display: grid;
   grid-template-columns: auto auto;
@@ -157,17 +173,22 @@
 
 /* large-screen-view */
 @media (min-width: 768px) {
+  .main-container {
+    background-size: 100vw 100vh;
+  }
   img {
     width: 50%;
   }
   .temp-info-container {
     display: grid;
-    grid-template-columns: 200px repeat(2, 1fr);
+    grid-template-columns: 200px 500px;
     grid-template-rows: 100px;
     align-items: center;
     column-gap: 10px;
   }
-
+  .flex-container .info {
+    width: auto;
+  }
   .mini-data-card {
     margin-inline-end: 12px;
     margin-inline-start: 12px;

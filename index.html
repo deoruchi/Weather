@@ -62,22 +62,24 @@
             <h1 class="info" id="main-temp"></h1>
           </div>
           <!-- feels like another div2 -->
-          <div>
-            <p
-              class="info"
-              id="cloud-stat"
-              style="
-                font-size: large;
-                text-transform: capitalize;
-                font-weight: 500;
-              "
-            ></p>
-            <p class="info">Feels like: <span id="feel-like"></span></p>
-          </div>
-          <!-- feels like another div3 -->
-          <div>
-            <p class="info">Sunrise: <span id="sunrise"></span></p>
-            <p class="info">Sunset: <span id="sunset"></span></p>
+          <div class="flex-container">
+            <div class="container">
+              <p
+                class="info"
+                id="cloud-stat"
+                style="
+                  font-size: large;
+                  text-transform: capitalize;
+                  font-weight: 500;
+                "
+              ></p>
+              <p class="info">Feels like: <span id="feel-like"></span></p>
+            </div>
+            <!-- feels like another div3 -->
+            <div class="container">
+              <p class="info">Sunrise: <span id="sunrise"></span></p>
+              <p class="info">Sunset: <span id="sunset"></span></p>
+            </div>
           </div>
         </section>
         <section>
