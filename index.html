@@ -26,27 +26,24 @@
   </head>
   <header>
     <!-- search barr and menu + logo -->
-    <p id="label">Weather OK</p>
+    <p class="info" id="label">Weather OK</p>
     <button class="button-search" id="search_icon">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
 
     <div class="search" id="search_box">
-      <input
-        type="text"
-        class="input-add"
-        id="address"
-        placeholder="Another Location"
-      />
+      <input type="text" class="input-add" id="address" />
       <button class="button-search" id="search_button">Search</button>
     </div>
   </header>
-  <body class="main-container">
+  <body class="main-container prevent-selection">
     <!-- main content -->
     <main class="temp-container">
       <div class="flex ownflex">
-        <h3 class="place-time background-style" id="time">Show time</h3>
-        <h3 class="place-time background-style" id="curr-place">place-name</h3>
+        <h3 class="place-time background-style info" id="time">Show time</h3>
+        <h3 class="place-time background-style info" id="curr-place">
+          place-name
+        </h3>
       </div>
       <article class="background-style info-main-container">
         <section class="temp-info-container">
@@ -60,7 +57,7 @@
               class="icon-image image-shadow"
               id="main-w-icon"
             />
-            <h1 id="main-temp"></h1>
+            <h1 class="info" id="main-temp"></h1>
           </div>
           <!-- feels like another div2 -->
           <div>
@@ -91,7 +88,9 @@
 
       <br />
       <section class="hour-weather background-style" id="mini-card-container">
-        <h2 class="font-style" style="text-align: center">Tri-Hourly Time</h2>
+        <h2 class="font-style info" style="text-align: center">
+          Tri-Hourly Time
+        </h2>
         <div class="flex" id="hour-mini-card">
           <!-- <div class="h-card ">
             <img id="h-image image-shadow" />
@@ -101,7 +100,9 @@
       </section>
       <!-- 5day forcast section -->
       <section class="forcast-container background-style">
-        <h2 class="font-style" style="text-align: center">5 Day Forcast</h2>
+        <h2 class="font-style info" style="text-align: center">
+          5 Day Forcast
+        </h2>
         <div class="days-cards" id="cards-d">
           <!-- <div class="cards fixed-width add-width">
             <div class="flex ownflex">
