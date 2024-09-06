@@ -173,9 +173,6 @@
 
 /* large-screen-view */
 @media (min-width: 768px) {
-  .main-container {
-    background-size: 100vw 100vh;
-  }
   img {
     width: 50%;
   }
