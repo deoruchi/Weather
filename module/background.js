@@ -1,6 +1,9 @@
 export function changeBackground(weatherInfo) {
-  const hours = new Date().getHours(); // Get the current hour
-  const weatherCondition = weatherInfo.weather[0].main.toLowerCase(); // Get the main weather condition
+  const hours = moment()
+    .utcOffset(weatherInfo.tz / 60)
+    .format("HH");
+  const weatherCondition =
+    weatherInfo.today_temp[0].weather[0].main.toLowerCase();
 
   let timeOfDay;
 

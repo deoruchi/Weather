@@ -15,7 +15,7 @@ const search_box = document.getElementById("search_box");
 const searchIcon = document.getElementById("search_icon");
 const search_button = document.getElementById("search_button");
 
-function display(weather_info) {
+function display(weather_info, timezone) {
   const { data } = weather_info;
 
   // Filter data once and reuse it
@@ -37,7 +37,7 @@ function display(weather_info) {
   displayDaysCard(filtered_data);
 
   // Change background based on today's weather
-  changeBackground(todayWeather);
+  changeBackground(filtered_data[0]);
 }
 
 // Toggle button for search and search icon
@@ -64,8 +64,9 @@ search_button.addEventListener("click", async () => {
   try {
     const weather_info = await getTheCordinates(place_name);
     console.log(weather_info);
+    let timezone = weather_info.data.city.timezone;
     worldTime(weather_info.data.city.timezone);
-    display(weather_info);
+    display(weather_info, timezone);
   } catch (error) {
     throw new Error(
       "An error occurred while fetching the data: " + error.message

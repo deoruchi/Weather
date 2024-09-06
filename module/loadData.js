@@ -7,7 +7,7 @@ import {
 
 const displayTime = document.getElementById("time");
 let intervalId;
-
+console.log(intervalId);
 export function worldTime(timezone) {
   // Clear any existing interval
   if (intervalId) {
@@ -99,22 +99,34 @@ export function displayWeatherInfo(info) {
 
 // Tri-Hourly Weather
 export function displayHourly(todayData) {
-  let { day, today_temp } = todayData;
+  console.log(todayData);
+  let today_temp = todayData.today_temp;
+
   let hourMiniCards = document.getElementById("hour-mini-card");
   let container = document.getElementById("mini-card-container");
-  if (today_temp.length == 0) {
-    //  todo: add loader
+
+  // Get the current hour in the target timezone
+  let currentHour = moment()
+    .utcOffset(todayData.tz / 60)
+    .format("HH");
+  currentHour = parseInt(currentHour); // Convert to integer for comparison
+
+  // Filter the temperature data to include only future times
+  let filteredTemps = today_temp.filter((items) => {
+    let time = parseInt(items.dt_txt.split(" ")[1].substring(0, 2));
+    return time > currentHour;
+  });
+  console.log(filteredTemps);
+
+  // Hide the container if no future times are found
+  if (filteredTemps.length === 0) {
     container.style.display = "none";
   }
-  let currentHour = parseInt(moment().format("HH"));
-  today_temp
-    .filter((items) => {
-      let time = parseInt(items.dt_txt.split(" ")[1].substring(0, 3));
-      return time > currentHour;
-    })
+  let htmlContent = filteredTemps
     .map((timeLine) => {
-      let time = parseInt(timeLine.dt_txt.split(" ")[1].substring(0, 3));
-      // let currentHour = parseInt(moment().format("HH"))
+      console.log(timeLine);
+      container.style.display = "block";
+      let time = parseInt(timeLine.dt_txt.split(" ")[1].substring(0, 2)); // Corrected substring for hour extraction
 
       let timeString = "";
       if (time >= 12) {
@@ -126,19 +138,20 @@ export function displayHourly(todayData) {
 
       let imageIcon = timeLine.weather[0].icon;
       let hTemp = convertToCel(timeLine.main.temp);
-      hourMiniCards.innerHTML += `
-      <div class="h-card backround-style">
+
+      return `
+    <div class="h-card backround-style">
       <p>${timeString}</p>
-        <img class="h-image image-shadow" src=https://openweathermap.org/img/wn/${imageIcon}@2x.png />
-        <p class="h-temp">${hTemp} \u00B0 C</p>
-     
-      </div> 
-    `;
-    });
+      <img class="h-image image-shadow" src="https://openweathermap.org/img/wn/${imageIcon}@2x.png" />
+      <p class="h-temp">${hTemp} \u00B0 C</p>
+    </div>
+  `;
+    })
+    .join("");
+  hourMiniCards.innerHTML = htmlContent;
 }
 
-// Show days Wise data
-let date = new Date();
+// 5-day weather
 
 export function displayDaysCard(data) {
   let cardHolder = document.getElementsByClassName("days-cards")[0];

@@ -16,7 +16,8 @@ function dataFilter(data_c) {
   const isoTimestamp = new Date().toISOString();
   let tm = isoTimestamp.split("T").shift();
   const list_of_temperature = data_c.list;
-
+  const tz = data_c.city.timezone;
+  console.log(tz);
   //split the other dates temperatures
   function getTimeIsoTimestamp(days) {
     const today = new Date();
@@ -36,7 +37,7 @@ function dataFilter(data_c) {
   fiveDays.map((days) => {
     const day = days[0][0];
     today_temp = filterData(list_of_temperature, days);
-    whole_data.push({ day, today_temp });
+    whole_data.push({ day, tz, today_temp });
   });
   // console.log("whole data", whole_data);
   return whole_data;
