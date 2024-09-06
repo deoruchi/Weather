@@ -32,7 +32,7 @@ Just vist the website link : [Weather OK](https://deoruchi.github.io/Weather/)
 
 **Additional Features:**
 
-<!--- [ ] Integrate a Map the pinpoint exact location-->
+- [ ] Integrate a Map the pinpoint exact location
 
 - [ ] _Precise searching functionality_ with available search option, possibily with autocomplete suggestion
 
