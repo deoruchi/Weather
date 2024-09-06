@@ -31,11 +31,9 @@ const shortDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export const generateDayTime = (key) => {
   let nextDate = new Date(date);
-  nextDate.setDate(date.getDate() + key); // Calculate the future date
+  nextDate.setDate(date.getDate() + key);
+  let nextDay = shortDays[nextDate.getDay()];
+  let dayDate = nextDate.getDate();
 
-  let nextDay = shortDays[nextDate.getDay()]; // Get the day of the week
-  let dayDate = nextDate.getDate(); // Get the date of the month
-
-  console.log(nextDay + " " + dayDate);
   return nextDay + " " + dayDate;
 };

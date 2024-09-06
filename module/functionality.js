@@ -54,19 +54,20 @@ search_button.addEventListener("click", async () => {
   hourMiniCards.innerHTML = "";
   let cardHolder = document.getElementById("cards-d");
   cardHolder.innerHTML = "";
-  const place_name = document.getElementById("address");
-  // let value = ;
-  console.log(place_name.value);
-  if (place_name.value === undefined) {
-    console.error("Provided with undefined or empty value");
-    return;
+  const place_name = document.getElementById("address").value;
+  // console.log("place name", place_name);
+  if (place_name === undefined || place_name === "") {
+    alert(" Input is either empty or wrong place name inserted");
   }
+
   try {
-    const weather_info = await getTheCordinates(place_name?.value);
+    const weather_info = await getTheCordinates(place_name);
     console.log(weather_info);
     display(weather_info);
   } catch (error) {
-    console.error("An error occurred while fetching the data:", error);
+    throw new Error(
+      "An error occurred while fetching the data: " + error.message
+    );
   }
 });
 
@@ -77,10 +78,10 @@ search_button.addEventListener("click", async () => {
       let lon = pos.coords.longitude;
       let weather_info = await getWeatherData(lat, lon);
       display(weather_info); //display all data
-
       // console.log("Geolocation", filtered_data, "placename", place_name);
     });
   } else {
     alert("Geolocation is not available");
+    throw new Error("Geolocation is not available for this place");
   }
 })();

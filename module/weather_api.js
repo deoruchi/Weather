@@ -1,12 +1,17 @@
 //geocoder api2 : returns weather and palce info
-const API_key = "f2f72fac7629af54e5160590ee52c0c6"
+const API_key = "f2f72fac7629af54e5160590ee52c0c6";
+
+const defaultplace = "hazaribag";
 async function getTheCordinates(place) {
+  if (place === "") {
+    place = defaultplace;
+  }
   const geocode = `http://api.openweathermap.org/geo/1.0/direct?q=${place},{state%20code}&limit=1&appid=${API_key}`;
 
   try {
     const res = await fetch(geocode);
     const data = await res.json();
-    console.log(data, data[0].lat);
+
     if (data[0] !== undefined) {
       // const place_name = await getPlace(result.lat, result.lng);
       const weather_info = await getWeatherData(data[0].lat, data[0].lon);
