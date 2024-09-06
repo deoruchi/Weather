@@ -14,6 +14,11 @@
   --accent-color: #ffffff; /* White */
 }
 
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  user-select: none; /* Standard syntax */
+}
+
 header {
   position: relative;
   top: -5px;
@@ -45,6 +50,7 @@ header .toggle {
   font-size: 15px;
   border-radius: 10px;
   color: rgba(0, 0, 0, 0.699);
+  cursor: pointer;
 }
 .input-add {
   border: none;
