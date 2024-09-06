@@ -112,10 +112,6 @@
   cursor: default;
 }
 
-.h-card:hover {
-  background-color: #2753386e;
-}
-
 .days-cards {
   margin: 2px;
   padding: 5px;
@@ -175,10 +171,6 @@
     transition: all ease-out 0.2s;
   }
 
-  .mini-data-card:hover {
-    background-color: #4683b48c;
-  }
-
   #hour-mini-card {
     flex-direction: row;
     justify-content: space-evenly;
@@ -211,10 +203,7 @@
     transition: all ease-in 0.3s;
     overflow-y: scrollS;
   }
-  .cards:hover {
-    backdrop-filter: blur(120px);
-    background-color: var(--tertiary-color);
-  }
+
   .card-info {
     grid-template-columns: 200px 100px;
     height: auto;
