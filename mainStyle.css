@@ -43,6 +43,9 @@
   margin-top: 5px;
   margin-bottom: 8px;
 }
+.container {
+  max-width: 20%;
+}
 
 .ownflex {
   justify-content: space-between;
