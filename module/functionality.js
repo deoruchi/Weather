@@ -6,6 +6,7 @@ import {
   displayWeatherInfo,
   displayHourly,
   displayDaysCard,
+  worldTime,
 } from "./loadData.js";
 
 import { changeBackground } from "./background.js";
@@ -63,6 +64,7 @@ search_button.addEventListener("click", async () => {
   try {
     const weather_info = await getTheCordinates(place_name);
     console.log(weather_info);
+    worldTime(weather_info.data.city.timezone);
     display(weather_info);
   } catch (error) {
     throw new Error(
@@ -77,7 +79,9 @@ search_button.addEventListener("click", async () => {
       let lat = pos.coords.latitude;
       let lon = pos.coords.longitude;
       let weather_info = await getWeatherData(lat, lon);
+      worldTime(weather_info.data.city.timezone);
       display(weather_info); //display all data
+
       // console.log("Geolocation", filtered_data, "placename", place_name);
     });
   } else {

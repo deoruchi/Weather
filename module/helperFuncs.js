@@ -2,11 +2,12 @@
 //https://gist.github.com/indexzero/6261ad9292c78cf3c5aa69265e2422bf
 
 // convert the UNIX timestamp
-export const convertUnixTime = (unix_time_stamp) => {
-  const timestamp = unix_time_stamp;
-  const date = new Date(timestamp * 1000); // Multiply by 1000 to convert seconds to milliseconds
-  const dateTime = date.toLocaleString().split(",");
-  return dateTime[1];
+
+export const convertUnixTime = (unix_time_stamp, timezone) => {
+  return moment
+    .unix(unix_time_stamp)
+    .utcOffset(timezone / 60)
+    .format("HH:mm A");
 };
 
 // Convert the Kelvin to Celcius

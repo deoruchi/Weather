@@ -6,10 +6,30 @@ import {
 } from "../module/helperFuncs.js";
 
 const displayTime = document.getElementById("time");
-setInterval(() => {
-  displayTime.innerText = moment().format("HH:mm a");
-  // console.log(moment().format("HH"));
-}, 2000);
+let intervalId;
+
+export function worldTime(timezone) {
+  // Clear any existing interval
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+
+  // Calculate the offset in hours
+  const timezoneOffsetHours = timezone / 3600;
+
+  // Function to update the time
+  function updateTime() {
+    displayTime.innerText = moment()
+      .utcOffset(timezoneOffsetHours)
+      .format("HH:mm a");
+  }
+
+  // Initial call to display the time immediately
+  updateTime();
+
+  // Update the time every 2 seconds
+  intervalId = setInterval(updateTime, 2000);
+}
 
 export function displayPlace(place) {
   const displayPlace = document.getElementById("curr-place");
@@ -31,11 +51,18 @@ export function displayData(todayData) {
     todayData.list[0].main.feels_like
   )}\u00B0 C`;
   let sunset = document.getElementById("sunset");
-  const sunSetTime = convertUnixTime(todayData.city.sunset);
+  const sunSetTime = convertUnixTime(
+    todayData.city.sunset,
+    todayData.city.timezone
+  );
   sunset.innerText = sunSetTime;
   let sunrise = document.getElementById("sunrise");
-  const sunRiseTime = convertUnixTime(todayData.city.sunrise);
+  const sunRiseTime = convertUnixTime(
+    todayData.city.sunrise,
+    todayData.city.timezone
+  );
   sunrise.innerText = sunRiseTime;
+  // testConvert(todayData.city.sunset, todayData.city.timezone);
 }
 
 // Weather info
@@ -44,16 +71,30 @@ export function displayWeatherInfo(info) {
   const d_array = {};
   const detailArray = createArray(info, d_array);
   Object.entries(detailArray).map((items) => {
+    let content;
+    switch (items[0]) {
+      case "Humidity":
+        content = `${items[1]} %`;
+        break;
+      case "Wind":
+        content = `${items[1]} m/s`;
+        break;
+      case "Visibility":
+        content = `${items[1] / 1000} km `;
+        break;
+      case "Pressure":
+        content = `${items[1]} hPa`;
+        break;
+    }
     detailContainer.innerHTML += `
       <div class="mini-detail mini-data-card">
         <p class="mini-title">${items[0]}</p>
         <div class="analytic-data">
-          <span>${items[1]}</span>
+          <span>${content}</span>
         </div>
       </div>
       `;
   });
-  detailArray;
 }
 
 // Tri-Hourly Weather
