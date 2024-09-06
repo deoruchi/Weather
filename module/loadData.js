@@ -5,6 +5,7 @@ import {
   generateDayTime,
 } from "../module/helperFuncs.js";
 
+// Show dynamic time
 const displayTime = document.getElementById("time");
 let intervalId;
 console.log(intervalId);
@@ -31,11 +32,13 @@ export function worldTime(timezone) {
   intervalId = setInterval(updateTime, 2000);
 }
 
+// Current Place or Entered Place
 export function displayPlace(place) {
   const displayPlace = document.getElementById("curr-place");
   displayPlace.innerText = place;
 }
 
+// Display whole data
 export function displayData(todayData) {
   let imageWeather = document.getElementById("main-w-icon");
   let imageIcon = todayData.list[0].weather[0].icon;
@@ -70,6 +73,7 @@ export function displayWeatherInfo(info) {
   let detailContainer = document.getElementById("weather-detail");
   const d_array = {};
   const detailArray = createArray(info, d_array);
+
   Object.entries(detailArray).map((items) => {
     let content;
     switch (items[0]) {
@@ -99,24 +103,28 @@ export function displayWeatherInfo(info) {
 
 // Tri-Hourly Weather
 export function displayHourly(todayData) {
+  const date = new Date();
   console.log(todayData);
   let today_temp = todayData.today_temp;
-
+  let get_date = todayData.day;
   let hourMiniCards = document.getElementById("hour-mini-card");
   let container = document.getElementById("mini-card-container");
 
-  // Get the current hour in the target timezone
+  // Get the current hour in the target timezone and date
   let currentHour = moment()
     .utcOffset(todayData.tz / 60)
     .format("HH");
-  currentHour = parseInt(currentHour); // Convert to integer for comparison
+  currentHour = parseInt(currentHour);
+  const today_date = moment()
+    .utcOffset(todayData.tz / 60)
+    .format()
+    .split("T")[0];
 
-  // Filter the temperature data to include only future times
+  // Filter the temperature data to include only future times and same date
   let filteredTemps = today_temp.filter((items) => {
     let time = parseInt(items.dt_txt.split(" ")[1].substring(0, 2));
-    return time > currentHour;
+    return time > currentHour && today_date === get_date;
   });
-  console.log(filteredTemps);
 
   // Hide the container if no future times are found
   if (filteredTemps.length === 0) {
